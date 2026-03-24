@@ -2,10 +2,6 @@ package de.hska.iwi.ads.solution.interfaces.de.hska.iwi.ads.solution.search;
 
 import de.hska.iwi.ads.search.Search;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public class BinarySearch implements Search<Integer> {
 
     @Override
