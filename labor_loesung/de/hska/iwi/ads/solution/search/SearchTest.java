@@ -65,7 +65,7 @@ public abstract class SearchTest {
   
   @Test
   void testSearchIntegerArrayInteger4() {
-    Search<Integer> search = createSearch();
+    de.hska.iwi.ads.search.Search<Integer> search = createSearch();
     Integer [] a = {0, 2, 4, 7, 9, 10, 11};
     
     assertEquals(7, search.search(a, 13));
@@ -73,7 +73,7 @@ public abstract class SearchTest {
   
   @Test
   void testSearchIntegerArrayInteger5() {
-    Search<Integer> search = createSearch();
+    de.hska.iwi.ads.search.Search<Integer> search = createSearch();
     Integer [] a = {1, 3, 5, 7, 9};
     
     assertEquals(3, search.search(a, 6));

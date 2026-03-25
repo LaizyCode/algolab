@@ -5,40 +5,38 @@ import de.hska.iwi.ads.search.Search;
 public class BinarySearch<E extends Comparable<E>> implements Search<E> {
     @Override
     public int search(E[] a, E key, int left, int right) {
-        return 0;
-    }
-
-    @Override
-    public int search(E[] a, E key) {
-        int left = 0;
-        int right = a.length;
-        int middle = 0;
-        int compare = 0;
-        int index = -1;
-
+        // Check ob der Value out of Bounds ist
         if(key.compareTo(a[left]) < 0) {
             return left - 1;
         }
 
-        if(key.compareTo(a[right - 1]) > 0) {
-            return right;
+        if(key.compareTo(a[right]) > 0) {
+            return right + 1;
         }
 
-        while (left < right - 1){
-            middle = (left + right) / 2;
-            compare = key.compareTo(a[middle]);
-            switch (compare) {
-                case 1:
-                    left = middle + 1;
-                    break;
-                case 0:
-                    index = middle;
-                case -1:
-                    right = middle;
-                    break;
+        int index = -1;
+
+        // Verschiebe links und rechts so lange, bis right < links gilt
+        while (left <= right){
+            int middle = (left + right) / 2;
+            int compare = key.compareTo(a[middle]);
+            if (compare > 0) {
+                left = middle + 1;
+            } else if (compare == 0) {
+                // Wenn Value gefunden wird iteriere nach links weiter,
+                // um den kleinstmöglichen Index zu finden
+                index = middle;
+                right = middle - 1;
+            } else {
+                right = middle - 1;
             }
         }
 
-        return index;
+        return (index != -1) ? index : left;
+    }
+
+    @Override
+    public int search(E[] a, E key) {
+        return search(a, key, 0, a.length - 1);
     }
 }
