@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * class as a base class. Add additional tests to your
  * test class.
  */
-public abstract class ReverseTest {
+public class ReverseTest {
 
     /**
      Creates and returns an implementation of the Reverse interface.
@@ -24,7 +24,9 @@ public abstract class ReverseTest {
      }
      </pre>
      */
-    public abstract <E extends Comparable<E>> Reverse<E> createReverse();
+    public <E extends Comparable<E>> Reverse<E> createReverse() {
+        return new ReverseArray<>();
+    }
 
     @Test
     void testReverseIntegerEntireArray() {
