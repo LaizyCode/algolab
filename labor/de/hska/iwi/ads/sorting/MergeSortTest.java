@@ -8,4 +8,5 @@ public class MergeSortTest extends SortTest {
     public <E extends Comparable<E>> Sort<E> createSort() {
         return new Mergesort<E>();
     }
+
 }
