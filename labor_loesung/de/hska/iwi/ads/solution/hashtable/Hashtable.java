@@ -19,7 +19,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
         int index = Math.floorMod(key.hashCode(), hashtable.length);
 
         for(int i = 0; i < hashtable.length; i++){
-            int probe = Math.floorMod(index + i + i, hashtable.length);
+            int probe = Math.floorMod(index + i * i, hashtable.length);
 
             if(hashtable[probe] == null){
                 return null;
